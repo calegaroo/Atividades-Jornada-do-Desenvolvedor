@@ -1,0 +1,69 @@
+programa
+{
+	inclua biblioteca Objetos
+	
+	real combustivelGasto = 0.0, quilometragemTotal = 0.0
+	
+	funcao inicio()
+	{
+		
+		perguntarValores()
+		
+		logico isValido = validarEntradas()
+		se(isValido == falso)
+		{			
+			retorne
+		}
+		
+		fazerCalculoExibir()
+	}
+
+	
+	funcao perguntarValores(){
+		escreva("***CALCULADORA PARA VERIFICAR O CONSUMO DO SEU CARRO***\n")
+		escreva ("Digite o valor da quilometragem total percorrida pelo seu veículo: ")
+		leia(quilometragemTotal)
+		escreva ("Digite o valor total em litros que você gastou ou abastecel de combustível:")
+		leia(combustivelGasto)
+	}
+
+
+	funcao logico validarEntradas()
+	{
+		se(quilometragemTotal <=0)
+		{
+		 	escreva("\nValor invalido! Digite um valor maior do que zero!")
+		 	retorne falso
+		}
+		
+		senao se(combustivelGasto <=0)
+		{
+			escreva("\nValor invalido! Digite um valor maior do que zero!")
+			retorne falso
+		}
+		
+		senao
+		{
+			retorne verdadeiro
+		}
+	}
+
+	funcao fazerCalculoExibir()
+	{
+		real consumo = quilometragemTotal / combustivelGasto
+		escreva("\nO seu carro teve um consumo de ",consumo," km/Litro de combustível\n")
+		
+		se (consumo >=14)
+		{
+			escreva("Parabéns seu veículo é muito ecônomico!!")
+		}
+		senao se (consumo >=10)
+		{
+			escreva("O consumo do seu veículo está dentro da média!")
+		}
+		senao 
+		{
+			escreva("O seu veículo está consumindo muito!!")
+		}
+	}
+}
