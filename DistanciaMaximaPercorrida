@@ -1,0 +1,58 @@
+programa
+{
+	inclua biblioteca Objetos
+	
+	real combustivelAdiocionado = 0.0, consumoMedio = 0.0
+	
+	funcao inicio()
+	{
+		
+		perguntarValores()
+		
+		logico isValido = validarEntradas()
+		se(isValido == falso)
+		{			
+			retorne
+		}
+		
+		fazerCalculoExibir()
+	}
+
+	
+	funcao perguntarValores(){
+		escreva("***CALCULADORA PARA VERIFICAR O QUANTO SEU VEÍCULO PODE PERCORRER AO REALIZAR UM ABASTECIMENTO***\n")
+		escreva ("Digite o valor total em litros que o veículo foi abastecido: ")
+		leia(combustivelAdiocionado)
+		escreva ("Digite o valor médio da quilometragem por litro gerada pelo se veículo:")
+		leia(consumoMedio)
+	}
+
+
+	funcao logico validarEntradas()
+	{
+		se(combustivelAdiocionado <=0)
+		{
+		 	escreva("\nValor invalido! Digite um valor maior do que zero!")
+		 	retorne falso
+		}
+		
+		senao se(consumoMedio <=0)
+		{
+			escreva("\nValor invalido! Digite um valor maior do que zero!")
+			retorne falso
+		}
+		
+		senao
+		{
+			retorne verdadeiro
+		}
+	}
+
+	funcao fazerCalculoExibir()
+	{
+		real distanciaMax = combustivelAdiocionado * consumoMedio
+		escreva("\nO seu veículo consegue percorrer uma distância máxima de aproximadamente ",distanciaMax," km de autonomia de acordo com os valores informados.")
+		
+		
+	}
+}
